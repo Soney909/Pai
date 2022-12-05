@@ -1,0 +1,7 @@
+table, th, td {
+  border:5px solid black;
+  border-collapse: collapse;
+}
+.elo tr:hover{
+    background-color: red;
+}

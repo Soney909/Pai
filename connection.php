@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="style.css"></link>
+</head>
     <body>
 <?php
 
@@ -14,20 +17,22 @@ while($row = mysqli_fetch_row($result)){
 
 $query2 = "SELECT id,nazwa,wystepowanie FROM ryby WHERE styl_zycia = 1";
 $sql = mysqli_query($conn, $query2);
-echo '<table>';
-echo '<td>'. 'id' .'</td>'. '<td>'. 'ryba' . '</td>'. '<td>' . 'srodowisko' . '</td>';
-while($row = mysqli_fetch_row($sql)){
-    echo '<tr>';
-    echo '<td>'. $row[0]. '</td>'. '<td>'.$row[1]. '</td>'.'<td>'.$row[2]. '</td>';
-    echo '</tr>';
-}
-echo '</table>';
 ?>
+<div class='elo'>
+    <table>
+    <tr>
+        <th>L.p</th>
+        <th>Ryba</th>
+        <th>Srodowiska</th>
+    </tr>
+    <?php
+    while($row = mysqli_fetch_row($sql)){
+        echo '<tr>';
+        echo '<td>'. $row[0]. '</td>'. '<td>'.$row[1]. '</td>'.'<td>'.$row[2]. '</td>';
+        echo '</tr>';
+    }
+    ?>
+</table>
+</div>
     </body>
 </html>
-<style>
-table, th, td {
-  border:1px solid black;
-  border-collapse: collapse;
-}
-</style>
